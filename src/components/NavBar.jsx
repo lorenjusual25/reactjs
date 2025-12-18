@@ -1,12 +1,14 @@
 import CartWidget from './CartWidget.jsx'
+import { Link } from 'react-router-dom'
+import './NavBar.css'
 export default function NavBar() {
     return (
         <>
             <nav className='navBar'>
-                <img src="/logoEmpresa.png" style={{borderRadius:5, height:50, width:50}}/>
-                <button className='botones'>CELULARES</button>
-                <button className='botones'>COMPUTADORAS</button>
-                <button className='botones'>CONSOLAS</button>
+                <Link to='/'><img src="/logoEmpresa.png" className='logoEmpresa'/></Link>
+                <Link to='/category/celulares'>CELULARES</Link>
+                <Link to='/category/computadoras'>COMPUTADORAS</Link>
+                <Link to='/category/consolas'>CONSOLAS</Link>
                 <CartWidget/>
             </nav>
         </>
