@@ -1,4 +1,4 @@
-const productos = [
+/*const productos = [
     {
         id: "01",
         name: 'Producto 1',
@@ -107,4 +107,4 @@ export function getProductsByCategory (category) {
                 resolve(prodsFiltrados)
         },1000)
     })
-}
+}*/
