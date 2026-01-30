@@ -1,0 +1,46 @@
+.item-detail-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+.item-detail {
+    background-color: rgb(213, 213, 214);
+    border-radius: 20px;
+    padding:2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 2rem;
+    flex-wrap:wrap;
+}
+.item-detail-info {
+    flex: 1;
+    min-width: 300px;
+}
+.item-reviews {
+    background-color: rgb(216, 216, 212);
+    border-radius: 20px;
+    padding: 2rem;
+}
+.item-reviews h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.review {
+    border-bottom: 1px solid #333;
+    padding: 1.5rem 0;
+}
+.review:last-child {
+    border-bottom: none;
+}
+
+.review h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+    color: #32367e;
+}
+
+.review p {
+    margin: 0;
+    line-height: 1.6;
+}

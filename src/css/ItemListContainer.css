@@ -1,0 +1,20 @@
+.itemListContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 1.5rem;
+    max-width: 1400px;
+
+}
+.itemList {
+    background-color: #aaaa;
+    border-radius: 10px;
+    padding: 1.5;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.itemList:hover {
+    transform: translateY(-5px);
+    background-color: #dcd8d8aa;
+}
