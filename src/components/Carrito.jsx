@@ -3,24 +3,38 @@ import CartContext from "../context"
 import { Link } from "react-router-dom"
 import { createOrder } from "../firebase"
 import '../css/Carrito.css'
+import toast from "react-hot-toast"
 export default function Carrito () {
     const [totalFinal, setTotalFinal] = useState(0)
     const [orderId, setOrderId] = useState(null)
     const { cart, updateQuantity, cleanCart, deleteItem, getTotalPrice } = useContext(CartContext)
+    const handleDelete = (id) => {
+        const res = deleteItem(id)
+        if (res.ok) {
+            toast.success(res.msg)
+        }
+        else {
+            toast.error(res.msg)
+        }
+    }
     const addsubProduct = (p,operator) => {
         let res;
         if (operator === "+")
             res = updateQuantity(p.id, p.quantity + 1)
         if (operator === "-")
             res = updateQuantity(p.id, p.quantity - 1)
-        alert(res.msg)
+        if (res.ok) {
+            toast.success(res.msg)
+        }
+        else {
+            toast.error(res.msg)
+        }
     }
     const handleCheckout = async () => {
         const order = {
             items: cart,
             total: getTotalPrice(),
-            date: new Date().toLocaleDateString(),
-            status: "pending"
+            date: new Date().toLocaleDateString()
         }
         try {
             const res = await createOrder(order)
@@ -71,7 +85,7 @@ export default function Carrito () {
                                 <button onClick={() => addsubProduct(p,"-")}>-</button>
                                 <span>{p.quantity}</span>
                                 <button onClick={() => addsubProduct(p,"+")}>+</button>
-                                <button onClick={() => deleteItem(p.id)}>🗑️</button>
+                                <button onClick={() => handleDelete(p.id)}>🗑️</button>
                             </div>
                         </div>
                     </div>

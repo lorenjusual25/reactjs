@@ -5,10 +5,12 @@ import HomeView from './views/HomeView.jsx'
 import CategoryView from './views/CategoryView.jsx'
 import ItemDetailContainer from './views/ItemDetailContainer.jsx'
 import Carrito from './components/Carrito.jsx'
+import {Toaster} from 'react-hot-toast'
 function App() {
   return (
     <>
       <BrowserRouter>
+        <Toaster position='bottom-center'/>
         <NavBar/>
         <Routes>
           <Route exact path='/' element={<HomeView welcome="bievenido"/>}></Route>

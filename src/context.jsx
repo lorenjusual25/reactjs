@@ -44,7 +44,19 @@ export function CartProvider ({children}) {
         }
     }
     const deleteItem = (id) => {
-        setCart(cart.filter((p) => p.id !== id))
+        try {
+            setCart(cart.filter((p) => p.id !== id))
+            return {
+                ok:true,
+                msg: "Producto eliminado"
+            }
+        } catch (error) {
+            console.error(error)
+            return {
+                ok:false,
+                msg: "Producto no encontrado"
+            }
+        }
     }
     const cleanCart = () => {
         setCart([])

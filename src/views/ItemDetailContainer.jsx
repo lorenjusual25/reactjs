@@ -3,11 +3,17 @@ import { useParams } from "react-router-dom";
 import ItemCounter from "../components/ItemCounter";
 import CartContext from "../context";
 import '../css/ItemDetailContainer.css'
+import toast from "react-hot-toast";
 function ItemDetail ({product}) {
     const {addItem} = useContext(CartContext)
     const handleAdd = (quantity) => {
         const res = addItem(product,quantity)
-        alert(res.msg)
+        if(res.ok) {
+            toast.success(res.msg)
+        }
+        else {
+            toast.error(res.msg)
+        }
     }
     return (
         <div className="item-detail-container">
